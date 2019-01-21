@@ -34,8 +34,8 @@ export const durations = {
   // Describes the length of each traffic pattern
   patternDuration: 5000,
   // Describes how often a car is added to the traffic queue
-  queueEvery: 2000,
+  queueEvery: 200,
   // Describes how long a car will wait at the intersection
-  // (this is only here to render cars arriving/passing through)
-  driverReactionTime: 1000
+  // (this is only here to render cars arriving & passing through)
+  driverReactionTime: 550
 }

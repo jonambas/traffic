@@ -6,13 +6,12 @@ import _ from 'lodash';
 const Road = ({ orientation, road, removeFromQueue }) => (
   <div className={styles[`Road-${orientation}`]}>
     <h5 className={styles.RoadLabel}>{orientation}</h5>
-    {/* {JSON.stringify(road)} */}
     <div className={styles.Lanes}>
       {road.lanes.map((count, i) => {
         // TODO extract to somewhere else
+        // TODO yellow light
         let go = false;
         let icon = '🚫';
-
         
         if (i === 0 && road.left) {
           go = true;
@@ -25,7 +24,6 @@ const Road = ({ orientation, road, removeFromQueue }) => (
         }
 
         const handleRemove = () => removeFromQueue(orientation, i);
-        // const handleRemove = () => console.log(orientation, i);
 
         return (
           <Lane key={i}

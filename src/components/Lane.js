@@ -9,11 +9,19 @@ class Lane extends Component {
 
     if (
       // When count is updated during a green light
-      (prevCount !== count && count && go) ||
+      (prevCount !== count && go && count > 0) ||
       // When light changes
-      (!prevGo && go && count)
+      (!prevGo && go && count > 0)
     ) {
-      setTimeout(handleRemove, durations.driverReactionTime);
+      setTimeout(this.handleRemove, durations.driverReactionTime);
+    }
+  }
+
+  handleRemove = () => {
+    const { count, go, handleRemove } = this.props;
+    // Recheck if car can still go after driver reacts 
+    if (go && count > 0) {
+      handleRemove();
     }
   }
 
