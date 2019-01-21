@@ -2,6 +2,18 @@ This app is deployed on Netlify: [silly-bardeen-ea3ef6.netlify.com/](https://sil
 
 ---
 
+##### What it does:
+- Alternates between north/south and east/west pairs of roads. 
+- Each pair signals left turns first, then straights.
+- Assumes no right turn on red (Behaves the same as straight)
+- Assumes no left turn yield
+
+##### What it doesn't do:
+- Pedestrain crossing
+- "Smart" timing
+- Yellow lights
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
