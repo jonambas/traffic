@@ -3,21 +3,21 @@ import { initialPattern, pairs, pattern, durations } from '../config';
 import _ from 'lodash';
 
 const defaultContext = {
-  intersection: {},
+  signal: {},
   activePairIndex: 0,
   activePatternIndex: 0
 };
 
-export const IntersectionContext = createContext(defaultContext);
+export const SignalContext = createContext(defaultContext);
 
-class IntersectionProvider extends Component {
+class SignalProvider extends Component {
   state = defaultContext;
 
   componentDidMount() { 
-    this.updateIntersection();
+    this.updateSignal();
   }
 
-  updateIntersection = (nextPairIndex = 0, nextPatternIndex = 0) => {
+  updateSignal = (nextPairIndex = 0, nextPatternIndex = 0) => {
     const activePair = pairs[nextPairIndex];
     const nextPattern = pattern[nextPatternIndex];
     const roads = _.flatten(pairs);
@@ -35,12 +35,12 @@ class IntersectionProvider extends Component {
      *  south: {left: false, straight: false}
      *  west: {left: false, straight: true}
      */
-    const intersection = roads.reduce((acc, road) => ({
+    const signal = roads.reduce((acc, road) => ({
       ...acc,
       [road]: _.includes(activePair, road) ? nextPattern : initialPattern
     }), {});
 
-    this.setState({ ...state, intersection }, this.next);
+    this.setState({ ...state, signal }, this.next);
   }
 
   /**
@@ -56,7 +56,7 @@ class IntersectionProvider extends Component {
         nextPairIndex = activePairIndex + 1;
       }
       
-      this.updateIntersection(nextPairIndex % pairs.length, nextPatternIndex % pattern.length);
+      this.updateSignal(nextPairIndex % pairs.length, nextPatternIndex % pattern.length);
     }, durations.patternDuration)
   }
 
@@ -66,10 +66,10 @@ class IntersectionProvider extends Component {
    */
   getValues = () => {
     const { roadQueue } = this.props;
-    const { intersection } = this.state;
+    const { signal } = this.state;
     const mergedData = {};
     
-    _.forEach(intersection, (value, key) => {
+    _.forEach(signal, (value, key) => {
       mergedData[key] = { ...value, lanes: roadQueue[key] }
     });
 
@@ -78,11 +78,11 @@ class IntersectionProvider extends Component {
 
   render() {
     return (
-      <IntersectionContext.Provider value={this.getValues()}>
+      <SignalContext.Provider value={this.getValues()}>
         {this.props.children}
-      </IntersectionContext.Provider>
+      </SignalContext.Provider>
     )
   }
 }
 
-export default IntersectionProvider;
+export default SignalProvider;

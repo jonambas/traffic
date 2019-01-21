@@ -1,43 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Intersection Provider should correctly reshape and set initial state 1`] = `
-Object {
-  "east": Object {
-    "lanes": Array [
-      0,
-      3,
-    ],
-    "left": false,
-    "straight": false,
-  },
-  "north": Object {
-    "lanes": Array [
-      0,
-      1,
-    ],
-    "left": true,
-    "straight": false,
-  },
-  "south": Object {
-    "lanes": Array [
-      0,
-      2,
-    ],
-    "left": true,
-    "straight": false,
-  },
-  "west": Object {
-    "lanes": Array [
-      0,
-      4,
-    ],
-    "left": false,
-    "straight": false,
-  },
-}
-`;
-
-exports[`Intersection Provider should correctly step through patterns 1`] = `
+exports[`Signal Provider should correctly step through patterns 1`] = `
 Object {
   "east": Object {
     "lanes": Array [
@@ -74,7 +37,7 @@ Object {
 }
 `;
 
-exports[`Intersection Provider should correctly step through patterns 2`] = `
+exports[`Signal Provider should correctly step through patterns 2`] = `
 Object {
   "east": Object {
     "lanes": Array [
@@ -111,7 +74,7 @@ Object {
 }
 `;
 
-exports[`Intersection Provider should correctly step through patterns 3`] = `
+exports[`Signal Provider should correctly step through patterns 3`] = `
 Object {
   "east": Object {
     "lanes": Array [
@@ -148,7 +111,7 @@ Object {
 }
 `;
 
-exports[`Intersection Provider should correctly step through patterns 4`] = `
+exports[`Signal Provider should correctly step through patterns 4`] = `
 Object {
   "east": Object {
     "lanes": Array [

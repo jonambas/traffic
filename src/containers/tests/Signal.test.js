@@ -1,8 +1,8 @@
 import React from 'react';
-import Intersection from '../Intersection';
+import Signal from '../Signal';
 import { shallow } from 'enzyme';
 
-describe('Intersection Provider', () => {
+describe('Signal Provider', () => {
   let wrapper;
   let next;
 
@@ -15,11 +15,7 @@ describe('Intersection Provider', () => {
 
   beforeEach(() => {
     global.setTimeout = jest.fn((fn) => next = fn);
-    wrapper = shallow(<Intersection roadQueue={roadQueueMock}>child</Intersection>);
-  });
-
-  it('should correctly reshape and set initial state', () => {
-    expect(wrapper.prop('value')).toMatchSnapshot();
+    wrapper = shallow(<Signal roadQueue={roadQueueMock}>child</Signal>);
   });
 
   it('should correctly step through patterns', async () => {

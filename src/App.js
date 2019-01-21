@@ -1,5 +1,5 @@
 import React from 'react';
-import IntersectionProvider, { IntersectionContext } from './containers/Intersection';
+import SignalProvider, { SignalContext } from './containers/Signal';
 import QueueProvider, { QueueContext } from './containers/Queue';
 import Roads from './components/Roads';
 import './App.scss';
@@ -10,16 +10,16 @@ const App = () => (
     <QueueProvider>
       <QueueContext.Consumer>
         {({ roadQueue, removeFromQueue }) => (
-          <IntersectionProvider roadQueue={roadQueue}>
-            <IntersectionContext.Consumer>
+          <SignalProvider roadQueue={roadQueue}>
+            <SignalContext.Consumer>
               {/*
                 Ideally there will be another layer here to:
-                - Compose everything from context
+                - Compose everything from all parent context
                 - Handle all logic in Roads
               */}
               {(data) => <Roads data={data} removeFromQueue={removeFromQueue} />}
-            </IntersectionContext.Consumer>
-          </IntersectionProvider>
+            </SignalContext.Consumer>
+          </SignalProvider>
         )}
       </QueueContext.Consumer>
     </QueueProvider>
