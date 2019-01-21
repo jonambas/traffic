@@ -60,9 +60,25 @@ class IntersectionProvider extends Component {
     }, durations.patternDuration)
   }
 
+  /**
+   * Reshapes data from Queue Context
+   * This probably should not be in this component
+   */
+  getValues = () => {
+    const { roadQueue } = this.props;
+    const { intersection } = this.state;
+    const mergedData = {};
+    
+    _.forEach(intersection, (value, key) => {
+      mergedData[key] = { ...value, lanes: roadQueue[key] }
+    });
+
+    return mergedData;
+  }
+
   render() {
     return (
-      <IntersectionContext.Provider value={this.state}>
+      <IntersectionContext.Provider value={this.getValues()}>
         {this.props.children}
       </IntersectionContext.Provider>
     )

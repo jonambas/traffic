@@ -22,6 +22,9 @@ class QueueProvider extends Component {
     setTimeout(this.addToQueue, durations.queueEvery)
   }
 
+  /**
+   * Randomly selects and increments a queue
+   */
   addToQueue = () => {
     const { roads } = this.state;
     const roadKeys = _.keys(roads);
@@ -45,7 +48,7 @@ class QueueProvider extends Component {
 
   render() {
     const value = {
-      ...this.state,
+      roadQueue: this.state.roads,
       removeFromQueue: this.removeFromQueue
     };
 

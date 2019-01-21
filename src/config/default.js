@@ -1,3 +1,6 @@
+/**
+ * Each "pair" is a set of roads that mirror pattern steps
+ */
 export const pairs = [
   ['north', 'south'],
   ['east', 'west']
@@ -8,6 +11,10 @@ export const initialPattern = {
   straight: false
 }
 
+/**
+ * Describes each step of each pair
+ * (Assuming no right turn on red, and no left turn yield)
+ */
 export const pattern = [
   {
     left: true,
@@ -16,11 +23,7 @@ export const pattern = [
   {
     left: false,
     straight: true
-  },
-  // {
-  //   left: 'yield',
-  //   straight: true
-  // }
+  }
 ];
 
 /**
@@ -31,7 +34,7 @@ export const pattern = [
 export const maxLanes = 4;
 
 export const durations = {
-  // Describes the length of each traffic pattern
+  // Describes the length of each traffic pattern step
   patternDuration: 5000,
   // Describes how often a car is added to the traffic queue
   queueEvery: 200,

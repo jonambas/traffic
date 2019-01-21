@@ -38,14 +38,14 @@ const Road = ({ orientation, road, removeFromQueue }) => (
   </div>
 );
 
-const Roads = ({ intersection, removeFromQueue }) => {
+const Roads = ({ data, removeFromQueue }) => {
   return (
     <div className={styles.Roads}>
-      {_.keys(intersection).map((orientation, key) => (
+      {_.keys(data).map((orientation, key) => (
         <Road
           key={key}
           orientation={orientation}
-          road={intersection[orientation]}
+          road={data[orientation]}
           removeFromQueue={removeFromQueue}
         />
       ))}

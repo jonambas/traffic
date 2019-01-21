@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 class Lane extends Component {
   componentDidUpdate({ count: prevCount, go: prevGo }) {
-    const { count, go, handleRemove } = this.props;
+    const { count, go } = this.props;
 
     if (
       // When count is updated during a green light
