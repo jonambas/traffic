@@ -61,8 +61,6 @@ class IntersectionProvider extends Component {
   }
 
   render() {
-    console.log(this.state.intersection)
-
     return (
       <IntersectionContext.Provider value={this.state}>
         {this.props.children}

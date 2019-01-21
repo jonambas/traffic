@@ -28,8 +28,14 @@ export const pattern = [
  * First lane is always a left turn
  * Last lane is always a right turn
  */
-export const lanes = 4;
+export const maxLanes = 4;
 
 export const durations = {
+  // Describes the length of each traffic pattern
   patternDuration: 5000,
+  // Describes how often a car is added to the traffic queue
+  queueEvery: 2000,
+  // Describes how long a car will wait at the intersection
+  // (this is only here to render cars arriving/passing through)
+  driverReactionTime: 1000
 }
