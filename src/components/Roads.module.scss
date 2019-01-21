@@ -1,0 +1,30 @@
+.Roads { 
+  position: relative;
+  height: 100vh;
+}
+
+%Road {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.Road-north {
+  @extend %Road;
+  top: 40%;
+}
+
+.Road-south {
+  @extend %Road;
+  top: 60%;
+}
+
+.Road-west {
+  @extend %Road;
+  left: 30%;
+}
+
+.Road-east {
+  @extend %Road;
+  left: 70%;
+}

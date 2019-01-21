@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IntersectionProvider, { IntersectionContext } from './containers/Intersection';
-import _ from 'lodash';
+import Roads from './components/Roads';
 
 class App extends Component {
   render() {
@@ -9,17 +9,7 @@ class App extends Component {
         <IntersectionProvider>
           <div>
             <IntersectionContext.Consumer>
-              {({ intersection }) => {
-                return (
-                  <div>
-                    {_.keys(intersection).map((key) => {
-                      return <div key={key}>
-                        {key}: {JSON.stringify(intersection[key])}
-                      </div>
-                    })}
-                  </div>
-                )
-              }}
+              {({ intersection }) => <Roads intersection={intersection} />}
             </IntersectionContext.Consumer>
           </div>
         </IntersectionProvider>
